@@ -30,20 +30,22 @@ The dataset consists of chest X-ray images categorized into **NORMAL** and **PNE
 - Measured edge strength and Fourier Transform energy.
 - Applied **Principal Component Analysis (PCA)** to reduce dimensions while preserving 95% variance (657 components).
 
-## Baseline Model
+## Baseline and Initial Models
 - **Dummy Classifier** (majority class baseline):
   - **Accuracy**: 62.6%
   - **Precision/Recall**: Biased toward predicting pneumonia due to dataset imbalance.
   - **Confusion Matrix**: Heavy misclassification of normal cases.
-- This highlights the need for more sophisticated models.
+- **Random Forest Classifier** (Initial ML Model):
+  - **Accuracy**: 66.7%
+  - **Better classification of pneumonia cases** but still misclassifies many normal cases.
+  - **Reveals importance of contrast, edge strength, and texture features**.
 
-## Key Features Driving the Differences
-Through EDA, we identified the following features as key discriminators between normal and pneumonia-affected lungs:
-- **Texture Homogeneity**: Pneumonia cases show more uniform textures, particularly bacterial pneumonia.
-- **Fourier Transform Energy**: Normal cases have higher frequency content, while pneumonia cases exhibit smoother textures.
-- **Edge Strength**: Pneumonia-infected lungs display lower edge intensity, possibly due to fluid-filled regions causing blurring.
-- **GLCM Contrast and Energy**: Normal cases have higher GLCM energy, whereas pneumonia cases show greater contrast variability.
-- **Brightness and Pixel Intensity Distributions**: Normal images tend to be brighter, while pneumonia cases exhibit a wider range of pixel intensities.
+## Key Findings on Feature Importance
+- **GLCM Contrast and Energy**: Pneumonia cases exhibit greater contrast variation and lower energy, indicating more irregular textures.
+- **Fourier Transform Energy**: Pneumonia cases have lower high-frequency content, aligning with the presence of smoother opacities.
+- **Edge Strength**: Pneumonia-affected lungs show weaker edges, likely due to increased fluid opacity.
+- **Pixel Intensity Distribution**: Pneumonia cases tend to have a broader intensity range, reflecting lung opacities caused by infection.
+- **Blurriness and Homogeneity**: Higher homogeneity in pneumonia cases suggests more uniform opacities across infected lungs.
 
 ## Next Steps
 - Train a more advanced classification model (e.g., CNN or transfer learning).
