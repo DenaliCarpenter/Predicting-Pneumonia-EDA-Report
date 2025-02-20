@@ -1,5 +1,7 @@
 # Predicting Pneumonia in Chest X-Ray Images
 
+Jupyter Notebook: https://github.com/DenaliCarpenter/predicting-pneumonia-eda-report/blob/main/EDA%20and%20Initial%20Model.ipynb
+
 ## Overview
 This project focuses on detecting pneumonia in chest X-ray images using machine learning. The goal is to explore various modeling techniques to distinguish between normal and pneumonia-affected lungs.
 
